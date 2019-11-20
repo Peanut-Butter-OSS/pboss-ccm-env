@@ -1,0 +1,37 @@
+version: '3'
+
+networks:
+  public:
+  safe:
+
+services:
+  rabbitmq:
+    restart: always
+    image: rabbitmq:3-management
+    ports:
+      - "4369:4369"
+      - "5671:5671"
+      - "5672:5672"
+      - "9072:15672"
+  #sonardb:
+    #restart: always
+    #image: postgres:9.6
+    #ports:
+    #  - "5432:5432"
+    #volumes:
+    #  - <Your path here>:/var/lib/postgresql/data
+    #environment:
+    # - POSTGRES_USER=sonar
+    # - POSTGRES_PASSWORD=sonar
+  #sonar:
+    #restart: always
+    #image: sonarqube
+    #ports:
+    # - "19000:9000"
+    # - "19092:9092"
+    #depends_on:
+    #  - sonardb
+    #environment:
+    # - SONARQUBE_JDBC_URL=jdbc:postgresql://sonardb:5432/sonar
+    # - SONARQUBE_JDBC_USERNAME=sonar
+    # - SONARQUBE_JDBC_PASSWORD=sonar
